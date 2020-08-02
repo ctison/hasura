@@ -1,0 +1,11 @@
+{
+  "dockerComposeFile": "docker-compose.yaml",
+  "service": "console",
+  "workspaceFolder": "/hasura/",
+  "extensions": [
+    "eamodio.gitlens",
+    "esbenp.prettier-vscode",
+    "mutantdino.resourcemonitor",
+    "redhat.vscode-yaml"
+  ]
+}
