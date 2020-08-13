@@ -1,0 +1,49 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "docker-compose up -d --build --always-recreate-deps --remove-orphans",
+    "dev:ps": "docker-compose ps -a",
+    "dev:top": "docker-compose top",
+    "dev:down": "docker-compose down -v --remove-orphans",
+    "format": "prettier --write '**/*.{ts,tsx,json,yaml,gql,md,html,css}'"
+  },
+  "devDependencies": {
+    "husky": "4.2.5",
+    "lint-staged": "10.2.11",
+    "prettier": "2.0.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,json,yaml,gql,md,html,css}": [
+      "prettier --write"
+    ]
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "jsxSingleQuote": true
+  },
+  "renovate": {
+    "extends": [
+      "github>ctison/renovate"
+    ],
+    "automerge": true,
+    "requiredStatusChecks": null,
+    "regexManagers": [
+      {
+        "fileMatch": [
+          "^Dockerfile$"
+        ],
+        "matchStrings": [
+          "ARG HASURA_VERSION=(?<currentValue>.+?)\n"
+        ],
+        "datasourceTemplate": "docker",
+        "depNameTemplate": "hasura/graphql-engine"
+      }
+    ]
+  }
+}
