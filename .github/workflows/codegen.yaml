@@ -9,6 +9,9 @@ jobs:
       - uses: actions/checkout@v2
       - run: yarn install --frozen-lockfile
       - run: yarn run dev:ci
+      - run: sleep 60
+      - run: yarn run dev:ps
+      # - run: curl --retry-connrefused --retry-delay 10 --retry 10 localhost:8080
       - run: yarn run generate
       - uses: actions/upload-artifact@v2
         with:
