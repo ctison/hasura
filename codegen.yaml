@@ -6,3 +6,9 @@ generates:
   schema.json:
     schema: http://localhost:8080/v1/graphql
     plugins: [introspection]
+  schema.user.json:
+    schema:
+      - http://localhost:8080/v1/graphql:
+          headers:
+            X-Hasura-Role: user
+    plugins: [introspection]
