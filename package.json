@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "dev": "docker-compose up -d --build --always-recreate-deps --remove-orphans && yarn run dev:logs",
+    "dev": "docker-compose up -d --build --always-recreate-deps --remove-orphans",
     "dev:logs": "docker-compose logs -f console",
     "dev:bash": "docker-compose exec -u root console bash",
     "dev:ci": "yarn run dev postgres hasura",
