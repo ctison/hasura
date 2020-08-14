@@ -1,0 +1,8 @@
+hooks:
+  afterAllFileWrite:
+    - prettier --write
+
+generates:
+  schema.json:
+    schema: http://localhost:8080/v1/graphql
+    plugins: [introspection]
