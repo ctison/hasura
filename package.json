@@ -2,6 +2,7 @@
   "private": true,
   "scripts": {
     "dev": "docker-compose up -d --build --always-recreate-deps --remove-orphans",
+    "dev:ci": "yarn run dev postgres hasura",
     "dev:down": "docker-compose down -v --remove-orphans",
     "dev:ps": "docker-compose ps -a",
     "dev:top": "docker-compose top",
