@@ -1,7 +1,10 @@
-#!/bin/ash
+#!/bin/bash
+umask 0077
+shopt -s nullglob
+set -euo pipefail
 
 # Wait until hasura service is ready
-until nc -z hasura:8080 ; do 
+until ncat -z hasura 8080 ; do 
   echo >&2 'Hasura service not ready - will retry in 5 seconds'
   sleep 5
 done

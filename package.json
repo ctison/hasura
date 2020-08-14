@@ -2,12 +2,16 @@
   "private": true,
   "scripts": {
     "dev": "docker-compose up -d --build --always-recreate-deps --remove-orphans",
+    "dev:down": "docker-compose down -v --remove-orphans",
     "dev:ps": "docker-compose ps -a",
     "dev:top": "docker-compose top",
-    "dev:down": "docker-compose down -v --remove-orphans",
-    "format": "prettier --write '**/*.{ts,tsx,json,yaml,gql,md,html,css}'"
+    "format": "prettier --write '**/*.{ts,tsx,json,yaml,gql,graphql,md,html,css}'",
+    "generate": "graphql-codegen"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "1.17.8",
+    "@graphql-codegen/introspection": "1.17.8",
+    "graphql": "15.3.0",
     "husky": "4.2.5",
     "lint-staged": "10.2.11",
     "prettier": "2.0.5"
@@ -18,7 +22,7 @@
     }
   },
   "lint-staged": {
-    "*.{ts,tsx,json,yaml,gql,md,html,css}": [
+    "*.{ts,tsx,json,yaml,gql,graphql,md,html,css}": [
       "prettier --write"
     ]
   },

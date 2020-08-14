@@ -1,16 +1,15 @@
-# Dockerfile of the console service in docker-compose.yaml
-FROM alpine:3.12.0
+FROM ctison/hasura-cli:v1.3.0@sha256:e416bb803c8562be40dd22327973e6fd774e6d8cffcbd9965098ea4547c3f067
 
-# Install hasura CLI
-ARG HASURA_VERSION=v1.3.0
-RUN wget -qO /usr/local/bin/hasura https://github.com/hasura/graphql-engine/releases/download/"$HASURA_VERSION"/cli-hasura-linux-amd64
-RUN chmod 500 /usr/local/bin/hasura
+USER root
 
-# Install socat to fowarding localhost:8080 to hasura:8080
-# hadolint ignore=DL3018
-RUN apk add --no-cache socat git
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && \
+  apt-get install --no-install-recommends -y git ncat socat  \
+  && rm -rf /var/lib/apt/lists/*
 
 COPY /entrypoint.sh /
+RUN chown hasura:hasura /entrypoint.sh
+USER hasura
 RUN chmod 500 /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["--address=0.0.0.0", "--no-browser"]

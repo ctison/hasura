@@ -15,6 +15,7 @@ services:
     restart: unless-stopped
     environment:
       HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:password@postgres:5432/postgres
+      HASURA_GRAPHQL_ENABLE_CONSOLE: 'false'
       HASURA_GRAPHQL_ENABLE_TELEMETRY: 'false'
       HASURA_GRAPHQL_MIGRATIONS_DIR: /hasura/migrations/
       HASURA_GRAPHQL_METADATA_DIR: /hasura/metadata/
