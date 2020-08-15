@@ -1,0 +1,21 @@
+{
+  "name": "@ctison/hasura-schemas-admin",
+  "description": "Contains GraphQL schemas generated from https://github.com/ctison/hasura",
+  "main": "schema.json",
+  "files": [
+    "README.md",
+    "schema.json",
+    "schema.graphql"
+  ],
+  "keywords": [
+    "api",
+    "graphql",
+    "schemas"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ctison/hasura.git",
+    "directory": "schemas/admin"
+  }
+}
