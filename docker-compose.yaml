@@ -2,14 +2,14 @@ version: '3.2'
 
 services:
   postgres:
-    image: postgres
+    image: postgres@sha256:b0cfe264cb1143c7c660ddfd5c482464997d62d6bc9f97f8fdf3deefce881a8c
     ports: [5432:5432]
     environment:
       POSTGRES_PASSWORD: password
     volumes: [postgres-data:/var/lib/postgresql/data]
 
   hasura:
-    image: hasura/graphql-engine:v1.3.0.cli-migrations-v2
+    image: hasura/graphql-engine:v1.3.0.cli-migrations-v2@sha256:5ee2112f00b15357ada0cee6150767dca9a466282de3ef1be74fd3cade7da8af
     depends_on: [postgres]
     ports: [8080:8080]
     restart: unless-stopped
