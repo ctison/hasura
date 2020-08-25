@@ -18,7 +18,7 @@
     "@graphql-inspector/cli": "2.2.0",
     "graphql": "15.3.0",
     "husky": "4.2.5",
-    "lint-staged": "10.2.11",
+    "lint-staged": "10.2.12",
     "prettier": "2.1.0"
   },
   "husky": {
