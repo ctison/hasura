@@ -1,4 +1,4 @@
-FROM ctison/hasura-cli:v1.3.1@sha256:94fc3241cde58ffa1f1dc60fe46c67b16fcad379f032b64645f8fea8fc8c9201
+FROM ctison/hasura-cli:v1.3.1@sha256:653f0f86db0be3720d46e732a085a60547c27eb0221e43b5124cc60bd52269d7
 
 USER root
 
