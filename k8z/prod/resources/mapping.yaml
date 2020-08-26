@@ -1,0 +1,11 @@
+# https://www.getambassador.io/docs/latest/topics/using/intro-mappings/
+
+apiVersion: getambassador.io/v2
+kind: Mapping
+metadata:
+  name: hasura
+spec:
+  host: api.k7o.io
+  prefix: /graphql
+  rewrite: /v1/graphql
+  service: http://$(HASURA_SVC_NAME).$(HASURA_SVC_NAMESPACE)

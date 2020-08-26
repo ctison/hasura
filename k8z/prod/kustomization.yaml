@@ -12,6 +12,9 @@ bases:
 patchesStrategicMerge:
   - patches/deployment.yaml
 
+resources:
+  - resources/mapping.yaml
+
 images:
   - name: ctison/hasura
     newTag: v0.0.0

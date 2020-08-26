@@ -6,6 +6,23 @@ namespace: hasura
 commonLabels:
   app.kubernetes.io/name: hasura
 
+configurations:
+  - configuration.yaml
+
+vars:
+  - name: HASURA_SVC_NAME
+    objref:
+      apiVersion: v1
+      kind: Service
+      name: hasura
+  - name: HASURA_SVC_NAMESPACE
+    objref:
+      apiVersion: v1
+      kind: Service
+      name: hasura
+    fieldref:
+      fieldpath: metadata.namespace
+
 resources:
   - resources/deployment.yaml
   - resources/service.yaml
