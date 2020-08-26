@@ -1,5 +1,15 @@
 - table:
     schema: public
+    name: CloudProviders
+  select_permissions:
+    - role: user
+      permission:
+        columns:
+          - id
+          - name
+        filter: {}
+- table:
+    schema: public
     name: Users
   select_permissions:
     - role: user
