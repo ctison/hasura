@@ -1,0 +1,17 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: hasura
+
+commonLabels:
+  app.kubernetes.io/name: hasura
+
+bases:
+  - ../base/
+
+patchesStrategicMerge:
+  - patches/deployment.yaml
+
+images:
+  - name: ctison/hasura
+    newTag: v0.0.0

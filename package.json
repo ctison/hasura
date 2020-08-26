@@ -8,6 +8,8 @@
     "dev:down": "docker-compose down -v --remove-orphans",
     "dev:ps": "docker-compose ps -a",
     "dev:top": "docker-compose top",
+    "docker:server": "docker build -t ctison/hasura --target server .",
+    "docker:console": "docker build -t ctison/hasura/console --target console .",
     "format": "prettier --write '**/*.{ts,tsx,json,yaml,gql,graphql,md,html,css}'",
     "generate": "graphql-codegen"
   },

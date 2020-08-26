@@ -36,6 +36,25 @@ jobs:
       - id: version
         shell: bash
         run: echo "::set-output name=version::${GITHUB_REF##refs/tags/v}"
+      - name: Build and push ctison/hasura
+        uses: docker/build-push-action@v1
+        with:
+          repository: ctison/hasura
+          target: server
+          tag_with_ref: true
+          add_git_labels: true
+          username: ctison
+          password: ${{secrets.DOCKERHUB_PASSWORD}}
+      - name: Deploy to production
+        env:
+          K8S_STAGING: ${{secrets.K8S_STAGING}}
+        run: |
+          perl -0777pi -we 's|- name: ctison/hasura\n +newTag: \K.+|v${{steps.version.outputs.version}}|' k8z/prod/kustomization.yaml
+          export KUBECONFIG="$PWD/kubeconfig"
+          echo "$K8S_STAGING" > "$KUBECONFIG"
+          kubectl create ns hasura --dry-run=client -o yaml | kubectl apply -f-
+          kubectl apply -k k8z/prod
+          rm kubeconfig
 
   release-npm:
     runs-on: ubuntu-latest

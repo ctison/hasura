@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hasura
+spec:
+  template:
+    metadata:
+      annotations:
+        linkerd.io/inject: enabled
+        seccomp.security.alpha.kubernetes.io/pod: runtime/default
+    spec:
+      securityContext:
+        runAsNonRoot: true
+      automountServiceAccountToken: false
+      containers:
+        - name: hasura
+          image: ctison/hasura
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: [all]
+            privileged: false
+            readOnlyRootFilesystem: true
+          ports:
+            - name: http-api
+              containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: http-api
+            initialDelaySeconds: 30
+            periodSeconds: 3
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http-api
+            initialDelaySeconds: 13
+            periodSeconds: 3
+            failureThreshold: 3

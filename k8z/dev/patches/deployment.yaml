@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hasura
+spec:
+  template:
+    spec:
+      containers:
+        - name: hasura
+          securityContext:
+            runAsNonRoot: false
+            runAsUser: 0
+          imagePullPolicy: Never
+          env:
+            - name: HASURA_GRAPHQL_DATABASE_URL
+              value: postgres://postgres:password@localhost:5432/postgres
+        - name: postgres
+          image: postgres
+          env:
+            - name: POSTGRES_PASSWORD
+              value: password
+          ports:
+            - name: psql
+              containerPort: 5432
+        - name: console
+          image: ctison/hasura/console
+          imagePullPolicy: Never
+          ports:
+            - name: http-console
+              containerPort: 9695
+            - name: ws-console
+              containerPort: 9693
+          workingDir: /hasura/
+          volumeMounts:
+            - name: hasura
+              mountPath: /hasura/
+      volumes:
+        - name: hasura
+          hostPath:
+            path: /work/hasura/
+            type: Directory

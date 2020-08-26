@@ -1,0 +1,10 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hasura
+spec:
+  replicas: 1
+  template:
+    metadata:
+      annotations:
+        container.apparmor.security.beta.kubernetes.io/hasura: runtime/default
