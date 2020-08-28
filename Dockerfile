@@ -8,7 +8,7 @@ ENV HASURA_GRAPHQL_ENABLE_TELEMETRY=false
 ENV HASURA_GRAPHQL_MIGRATIONS_DIR=/hasura/migrations/
 ENV HASURA_GRAPHQL_METADATA_DIR=/hasura/metadata/
 
-FROM ctison/hasura-cli:v1.3.1@sha256:b4014bdd08d6a6801c54a7848f70be993a9c04217970d8329643d5d1653da315 as console
+FROM ctison/hasura-cli:v1.3.1@sha256:4dd7d78b8e92db5b491317dfda0162876c2b4bca58a740df7f6ffb755c08713d as console
 
 USER root
 RUN apt-install-no-cache git ncat socat
