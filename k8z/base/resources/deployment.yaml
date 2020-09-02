@@ -7,10 +7,11 @@ spec:
     metadata:
       annotations:
         linkerd.io/inject: enabled
-        seccomp.security.alpha.kubernetes.io/pod: runtime/default
     spec:
       securityContext:
         runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
       automountServiceAccountToken: false
       containers:
         - name: hasura
