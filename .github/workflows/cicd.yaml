@@ -37,7 +37,7 @@ jobs:
         shell: bash
         run: echo "::set-output name=version::${GITHUB_REF##refs/tags/v}"
       - name: Build and push ctison/hasura
-        uses: docker/build-push-action@v1
+        uses: docker/build-push-action@v2
         with:
           repository: ctison/hasura
           target: server
