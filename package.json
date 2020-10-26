@@ -17,7 +17,7 @@
     "@graphql-codegen/cli": "1.19.0",
     "@graphql-codegen/introspection": "1.18.0",
     "@graphql-codegen/schema-ast": "1.17.8",
-    "@graphql-inspector/cli": "2.2.0",
+    "@graphql-inspector/cli": "2.3.0",
     "graphql": "15.3.0",
     "husky": "4.3.0",
     "lint-staged": "10.4.2",
