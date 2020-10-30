@@ -406,9 +406,9 @@
     tslib "~2.0.1"
 
 "@graphql-tools/delegate@^7.0.0", "@graphql-tools/delegate@^7.0.1":
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/delegate/-/delegate-7.0.1.tgz#dd8651394b10b826f3a7f61cf1722d201a986e46"
-  integrity sha512-XawfIGq2Q7dw8X2F3slLaNmCr79sQ0mg3SALd2oysaC18uAuaRcYA/0plcIR0O2dQDamI+NfvEy1I6TNZ/czLg==
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/delegate/-/delegate-7.0.2.tgz#f933254727173bab4f6e0e13b2d8d4500eadf426"
+  integrity sha512-AkNkg8w966+cHEVNddYUPeuPybNvbnkL+iFA8rrW5V3F8e6LHRep5MnFwNKD4JTae9HeKEs9Jx0UQDwnuCsZng==
   dependencies:
     "@ardatan/aggregate-error" "0.0.6"
     "@graphql-tools/batch-execute" "^7.0.0"
