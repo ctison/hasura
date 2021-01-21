@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   postgres:
-    image: postgres@sha256:57e21ed66832b61c13192684b140f2dc23fdc9b36b5c9c49e11cecfc23a59a45
+    image: postgres@sha256:29351fa971769c793d19e75e98c71ca7e00ad981267bcd99590862917eea2713
     ports: [5432:5432]
     environment:
       POSTGRES_PASSWORD: password
