@@ -14,4 +14,4 @@ patchesStrategicMerge:
 
 images:
   - name: postgres
-    newTag: sha256:29351fa971769c793d19e75e98c71ca7e00ad981267bcd99590862917eea2713
+    newTag: sha256:c32f3f8364d79f71958c9ada74c43c2033d7e13d9d5fc21d3ba89322e6559c9d
